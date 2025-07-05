@@ -1,58 +1,102 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+4ov59l-codex/create-clean-homepage-with-search-bar
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+main
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .home-container {
+ 4ov59l-codex/create-clean-homepage-with-search-bar
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 4rem 1rem;
+  min-height: 100vh;
+  padding: 0 1rem;
 }
 
-.home-title {
-  font-size: 3rem;
-  font-weight: bold;
+.home-logo {
+  width: 120px;
   margin-bottom: 1rem;
 }
 
-.home-description {
-  font-size: 1.2rem;
+.home-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.home-subtitle {
+  font-size: 1.25rem;
   margin-bottom: 2rem;
   color: #555;
+  max-width: 500px;
+  line-height: 1.4;
 }
 
 .search-form {
   display: flex;
   justify-content: center;
+  width: 100%;
+  max-width: 400px;
+ main
   gap: 0.5rem;
 }
 
 .search-input {
-  padding: 0.5rem 0.75rem;
+ 4ov59l-codex/create-clean-homepage-with-search-bar
+  flex: 1;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  min-width: 200px;
+  background-color: #fff;
+  border: 1px solid #2D3E9E;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .search-button {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
   font-size: 1rem;
-  background-color: #4caf50;
+  font-weight: 600;
+  background-color: #D72638;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .search-button:hover {
-  background-color: #45a049;
+  background-color: #b91f30;
 }
 
 .bill-page {
   padding: 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.bill-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.bill-card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.bill-detail {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+ main
 }
