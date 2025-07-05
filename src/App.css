@@ -1,11 +1,14 @@
 body {
   margin: 0;
+4ov59l-codex/create-clean-homepage-with-search-bar
   font-family: 'Helvetica Neue', Arial, sans-serif;
+main
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .home-container {
+ 4ov59l-codex/create-clean-homepage-with-search-bar
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,10 +43,12 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 400px;
+ main
   gap: 0.5rem;
 }
 
 .search-input {
+ 4ov59l-codex/create-clean-homepage-with-search-bar
   flex: 1;
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -93,4 +98,5 @@ body {
 .bill-detail {
   margin-bottom: 0.75rem;
   line-height: 1.4;
+ main
 }
