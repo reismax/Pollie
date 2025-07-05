@@ -1,8 +1,6 @@
- kze5vb-codex/create-clean-homepage-with-search-bar
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios/dist/browser/axios.cjs';
+import axios from 'axios';
 
 function BillPage() {
   const { id } = useParams();
@@ -60,7 +58,6 @@ function BillPage() {
           </>
         )}
       </div>
- kze5vb-codex/create-clean-homepage-with-search-bar
 
     </div>
   );
