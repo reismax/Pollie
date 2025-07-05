@@ -15,8 +15,8 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">Pollie</h1>
-      <p className="home-description">Search congressional bills by ID</p>
+      <h1 className="home-title">Welcome to Pollie</h1>
+      <p className="home-subtitle">Track Congressional bills and voting records in real time</p>
       <form onSubmit={handleSubmit} className="search-form">
         <input
           type="text"
