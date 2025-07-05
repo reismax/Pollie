@@ -1,6 +1,5 @@
 body {
   margin: 0;
- kze5vb-codex/create-clean-homepage-with-search-bar
   font-family: 'Helvetica Neue', Arial, sans-serif;
 
   -webkit-font-smoothing: antialiased;
@@ -8,8 +7,6 @@ body {
 }
 
 .home-container {
- kze5vb-codex/create-clean-homepage-with-search-bar
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,14 +41,10 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 400px;
- kze5vb-codex/create-clean-homepage-with-search-bar
- main
   gap: 0.5rem;
 }
 
 .search-input {
- kze5vb-codex/create-clean-homepage-with-search-bar
-main
   flex: 1;
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -101,6 +94,4 @@ main
 .bill-detail {
   margin-bottom: 0.75rem;
   line-height: 1.4;
- kze5vb-codex/create-clean-homepage-with-search-bar
- main
 }

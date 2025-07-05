@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
- kze5vb-codex/create-clean-homepage-with-search-bar
 import logo from './logo.svg';
 
 import './App.css';
@@ -18,7 +17,6 @@ function Home() {
 
   return (
     <div className="home-container">
- kze5vb-codex/create-clean-homepage-with-search-bar
       <img src={logo} className="home-logo" alt="Pollie logo" />
       <h1 className="home-title">Pollie</h1>
       <p className="home-subtitle">Track Congressional bills and voting records in real time</p>
