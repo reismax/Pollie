@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Environment Variables
+
+Create a `.env` file based on `.env.example` and provide your Congress.gov API key:
+
+```
+REACT_APP_CONGRESS_API_KEY=YOUR_API_KEY
+```
+
+This key is used by the Bill page to fetch bill details from the Congress.gov API.
