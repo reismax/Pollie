@@ -78,3 +78,25 @@ REACT_APP_CONGRESS_API_KEY=YOUR_API_KEY
 ```
 
 This key is used by the Bill page to fetch bill details from the Congress.gov API.
+
+## Backend API Server
+
+A small Express server is provided in the `server` folder. It exposes a single route `/api/bill/:billId` that proxies requests to the Congress.gov API and returns the raw data.
+
+### Setup
+1. Navigate to the `server` directory:
+   ```bash
+   cd server
+   ```
+2. Create a `.env` file based on `.env.example` and add your Congress.gov API key:
+   ```bash
+   cp .env.example .env
+   # Edit .env and set CONGRESS_API_KEY
+   ```
+3. Install dependencies and start the server:
+   ```bash
+   npm install
+   npm start
+   ```
+
+The server runs on port `5000` by default and has CORS enabled for `http://localhost:3000` so it can be used from the React frontend.
