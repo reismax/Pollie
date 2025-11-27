@@ -1,0 +1,21 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "CONGRESS_API_KEY": {
+      "description": "Congress.gov API key from https://api.data.gov",
+      "value": ""
+    },
+    "FRED_API_KEY": {
+      "description": "FRED API key from https://research.stlouisfed.org/useraccount/apikeys",
+      "value": ""
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic Claude API key from https://console.anthropic.com",
+      "value": ""
+    }
+  }
+}

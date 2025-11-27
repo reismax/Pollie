@@ -2,6 +2,41 @@
 
 A comprehensive Next.js 14 application for tracking congressional activity, economic indicators, financial markets, and generating AI-powered policy analysis.
 
+## 🚀 Quick Deploy (2 Minutes)
+
+**Deploy to Vercel (Easiest):**
+
+1. Click this link: https://vercel.com/new/clone?repository-url=https://github.com/reismax/Pollie
+2. Connect your GitHub account (if not already)
+3. Click "Deploy"
+4. Add your API keys in the Vercel dashboard (Settings → Environment Variables)
+5. Done! Your app will be live at `your-project.vercel.app`
+
+**Or use the Vercel CLI:**
+
+```bash
+# Make sure you're in the Pollie directory
+vercel
+
+# Follow the prompts:
+# - Set up and deploy? Yes
+# - Which scope? (choose your account)
+# - Link to existing project? No
+# - Project name? pollie (or your choice)
+# - Directory? ./
+# - Override settings? No
+
+# Add environment variables:
+vercel env add CONGRESS_API_KEY
+vercel env add FRED_API_KEY
+vercel env add ANTHROPIC_API_KEY
+
+# Redeploy with env vars:
+vercel --prod
+```
+
+Your app will be live in ~2 minutes! 🎉
+
 ## Features
 
 - **Morning Briefing Dashboard**: Executive summary of overnight developments across all sections
