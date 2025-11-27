@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model NewsItem {
+  id          String    @id @default(cuid())
+  title       String
+  source      String
+  url         String?
+  snippet     String?
+  content     String?
+  category    String    // politics, economics, finance
+  publishedAt DateTime
+  scannedAt   DateTime  @default(now())
+  analysis    Analysis?
+}
+
+model Analysis {
+  id                  String   @id @default(cuid())
+  newsItemId          String   @unique
+  newsItem            NewsItem @relation(fields: [newsItemId], references: [id], onDelete: Cascade)
+  summary             String   // JSON string
+  economicEffects     String   // JSON string
+  marketImplications  String   // JSON string
+  macroLinks          String   // JSON string
+  stakeholders        String   // JSON string
+  dataNeeded          String   // JSON string
+  createdAt           DateTime @default(now())
+}
+
+model EconomicData {
+  id        String   @id @default(cuid())
+  series    String   // GDP, CPI, UNRATE, etc.
+  date      DateTime
+  value     Float
+  createdAt DateTime @default(now())
+
+  @@unique([series, date])
+}
+
+model DailyBrief {
+  id          String   @id @default(cuid())
+  briefing    String
+  keyTopics   String   // JSON string
+  marketWatch String
+  outlook     String
+  generatedAt DateTime @default(now())
+}
+
+model CongressBill {
+  id              String   @id @default(cuid())
+  congress        Int
+  billType        String
+  billNumber      Int
+  title           String
+  sponsor         String?
+  sponsorParty    String?
+  sponsorState    String?
+  latestAction    String?
+  latestActionDate DateTime?
+  status          String?
+  introducedDate  DateTime?
+  committees      String?  // JSON string
+  cosponsors      Int      @default(0)
+  url             String?
+  fullData        String?  // JSON string - store complete API response
+  lastFetched     DateTime @default(now())
+
+  @@unique([congress, billType, billNumber])
+}
