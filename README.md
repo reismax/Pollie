@@ -1,102 +1,203 @@
-# Getting Started with Create React App
+# Pollie - Macro Economic Research & Policy Analysis Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive Next.js 14 application for tracking congressional activity, economic indicators, financial markets, and generating AI-powered policy analysis.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Morning Briefing Dashboard**: Executive summary of overnight developments across all sections
+- **Political Activity Tracker**: Real-time Congressional bills, votes, and hearings via Congress.gov API
+- **Economic Indicators**: Federal Reserve updates, inflation, employment, and GDP tracking via FRED API
+- **Financial Markets**: Market news aggregator with sentiment analysis for equities, bonds, FX, and commodities
+- **Interactive Statistics**: Charts and time series data visualization with export capabilities
+- **AI-Powered Analysis**: Claude API integration for detailed economic and policy impact analysis
+- **Dark Mode**: Full dark/light theme support
+- **Responsive Design**: Mobile-friendly interface
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Components**: shadcn/ui (Radix UI)
+- **Database**: SQLite with Prisma ORM
+- **Charts**: Recharts
+- **AI**: Anthropic Claude API
+- **Data Sources**: Congress.gov API, FRED API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 18+ and npm
+- API Keys:
+  - Congress.gov API key (get from https://api.data.gov)
+  - FRED API key (get from https://research.stlouisfed.org/docs/api/api_key.html)
+  - Anthropic API key (get from https://console.anthropic.com)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-## Environment Variables
-
-Create a `.env` file based on `.env.example` and provide your Congress.gov API key:
-
-```
-REACT_APP_CONGRESS_API_KEY=YOUR_API_KEY
-```
-
-This key is used by the Bill page to fetch bill details from the Congress.gov API.
-
-## Backend API Server
-
-A small Express server is provided in the `server` folder. It exposes a single route `/api/bill/:billId` that proxies requests to the Congress.gov API and returns the raw data.
-
-### Setup
-1. Navigate to the `server` directory:
+1. Clone the repository:
    ```bash
-   cd server
+   git clone <repository-url>
+   cd Pollie
    ```
-2. Create a `.env` file based on `.env.example` and add your Congress.gov API key:
-   ```bash
-   cp .env.example .env
-   # Edit .env and set CONGRESS_API_KEY
-   ```
-3. Install dependencies and start the server:
+
+2. Install dependencies:
    ```bash
    npm install
-   npm start
    ```
 
-The server runs on port `5000` by default and has CORS enabled for `http://localhost:3000` so it can be used from the React frontend.
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Edit `.env` and add your API keys:
+   ```env
+   DATABASE_URL="file:./dev.db"
+   CONGRESS_API_KEY=your_congress_api_key_here
+   FRED_API_KEY=your_fred_api_key_here
+   ANTHROPIC_API_KEY=your_anthropic_api_key_here
+   ```
+
+5. Initialize the database:
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
+
+6. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+7. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+Pollie/
+├── app/                      # Next.js 14 App Router
+│   ├── api/                  # API Routes
+│   │   ├── congress/         # Congress.gov API integration
+│   │   ├── fred/             # FRED API integration
+│   │   └── claude/           # Claude API integration
+│   ├── politics/             # Politics page
+│   ├── economics/            # Economics page
+│   ├── finance/              # Finance page
+│   ├── stats/                # Statistics page
+│   ├── layout.tsx            # Root layout
+│   ├── page.tsx              # Home page
+│   └── globals.css           # Global styles
+├── components/               # React components
+│   ├── ui/                   # shadcn/ui components
+│   ├── navigation.tsx        # Navigation bar
+│   └── theme-provider.tsx    # Theme provider
+├── lib/                      # Utility functions
+│   ├── prisma.ts             # Prisma client
+│   └── utils.ts              # Helper functions
+├── prisma/                   # Database schema
+│   └── schema.prisma         # Prisma schema
+└── public/                   # Static assets
+```
+
+## API Routes
+
+### Congress.gov API
+- `GET /api/congress/bills` - Fetch list of bills
+- `GET /api/congress/bill/[congress]/[type]/[number]` - Fetch specific bill details
+
+### FRED API
+- `GET /api/fred/series?series_id=GDPC1` - Fetch economic data series
+- `POST /api/fred/multiple` - Fetch multiple series at once
+
+### Claude API
+- `POST /api/claude/analyze` - Generate AI-powered policy analysis
+
+## Database Schema
+
+The application uses SQLite with Prisma ORM. Key models:
+
+- **NewsItem**: Stores news articles and policy updates
+- **Analysis**: AI-generated analysis linked to news items
+- **EconomicData**: Time series economic data from FRED
+- **DailyBrief**: Generated daily briefings
+- **CongressBill**: Congressional bill information
+
+## Development
+
+```bash
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Lint code
+npm run lint
+
+# Generate Prisma client
+npx prisma generate
+
+# Push schema changes to database
+npx prisma db push
+
+# Open Prisma Studio (database GUI)
+npx prisma studio
+```
+
+## Features in Detail
+
+### Pollie Analysis Engine
+
+When users click "Analyze" on any item, the app calls the Claude API with a structured prompt that returns:
+
+- **Summary**: Key takeaways in bullet points
+- **Economic Effects**: Short-run, long-run, distributional effects, and risks
+- **Market Implications**: Impact on bonds, equities, FX, and commodities
+- **Macro Links**: Connections to inflation, employment, growth, monetary policy, and fiscal position
+- **Stakeholders**: Arguments from supporters and opponents
+- **Data Needed**: Missing information for complete analysis
+
+### Data Caching
+
+API responses are cached to minimize external API calls:
+- Congressional data: Updates every 6 hours
+- Economic data: Updates daily
+- News data: Updates every 15 minutes when page is active
+
+## Deployment
+
+The application can be deployed to:
+- Vercel (recommended for Next.js)
+- Railway
+- AWS
+- Any Node.js hosting platform
+
+For production deployment:
+1. Set environment variables in your hosting platform
+2. Configure database (SQLite for development, PostgreSQL recommended for production)
+3. Build the application: `npm run build`
+4. Start the server: `npm start`
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Congress.gov API for legislative data
+- Federal Reserve Economic Data (FRED) for economic statistics
+- Anthropic Claude for AI-powered analysis
+- shadcn/ui for beautiful UI components
